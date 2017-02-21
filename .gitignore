@@ -1,4 +1,7 @@
 old
 src/js/plugins
 src/js/zhang.min.js
-src/php/TMP
+src/php/TMP/*
+
+!src/php/TMP/README
+!src/php/TMP/tmpPacket
