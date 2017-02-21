@@ -5,21 +5,12 @@ define('DS', DIRECTORY_SEPARATOR);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     # 这里把上传的操作提交给相对于的操作处理
     # 如果是正式使用，不用判断 直接指定要使用的版本
-    $ver = false;
     $path = APP_ROOT . DS . 'src' . DS . 'php' . DS;
-    foreach (['v', 'ver', 'version'] as $v) {
-        if (isset($_GET[$v])) {
-            $ver = $_GET[$v];
-            break;
-        }
-    }
-    if (!$ver || !is_dir($path . $ver)) {
-        preg_match("/test\/(.+)\.html$/i", $_SERVER['HTTP_REFERER'], $matches);
-        if (isset($matches[1])) {
-            $ver = $matches[1];
-        } else {
-            die('无法找到需要请求的版本！');
-        }
+    preg_match("/test\/(.+)\.html$/i", $_SERVER['HTTP_REFERER'], $matches);
+    if (isset($matches[1])) {
+        $ver = $matches[1];
+    } else {
+        die('无法找到需要请求的版本！');
     }
     require $path . $ver . DS . 'BPUploads.php';
 } else {
