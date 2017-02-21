@@ -15,7 +15,6 @@ www  WEB目录
 ├─src					资源目录
 │  ├─css				css资源
 │  ├─js					js资源
-│  │  ├─plugins	   	   	其它|辅助js目录
 │  │  ├─BPUploads.js    断点上传js文件
 │  │  └─ ...            更多js文件
 │  │
